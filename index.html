@@ -1,1 +1,50 @@
-PCFET0NUWVBFIGh0bWw+CjxodG1sIGxhbmc9ImVuIj4KPGhlYWQ+CiAgICA8bWV0YSBjaGFyc2V0PSJVVEYtOCI+CiAgICA8bWV0YSBuYW1lPSJ2aWV3cG9ydCIgY29udGVudD0id2lkdGg9ZGV2aWNlLXdpZHRoLCBpbml0aWFsLXNjYWxlPTEuMCI+CiAgICA8dGl0bGU+UmFpbmluZyBTdGFyczwvdGl0bGU+CiAgICA8c3R5bGU+CiAgICAgICAgYm9keSB7CiAgICAgICAgICAgIG1hcmdpbjogMDsKICAgICAgICAgICAgaGVpZ2h0OiAxMDB2aDsKICAgICAgICAgICAgYmFja2dyb3VuZDogIzAwMDsKICAgICAgICAgICAgb3ZlcmZsb3c6IGhpZGRlbjsKICAgICAgICB9CiAgICAgICAgLnN0YXIgewogICAgICAgICAgICBwb3NpdGlvbjogYWJzb2x1dGU7CiAgICAgICAgICAgIHdpZHRoOiAycHg7CiAgICAgICAgICAgIGhlaWdodDogMnB4OwogICAgICAgICAgICBiYWNrZ3JvdW5kOiB3aGl0ZTsKICAgICAgICAgICAgYm9yZGVyLXJhZGl1czogNTAlOwogICAgICAgICAgICBhbmltYXRpb246IGZhbGwgbGluZWFyOwogICAgICAgIH0KICAgICAgICBAa2V5ZnJhbWVzIGZhbGwgewogICAgICAgICAgICBmcm9tIHsKICAgICAgICAgICAgICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlWSgtMTBweCk7CiAgICAgICAgICAgIH0KICAgICAgICAgICAgdG8gewogICAgICAgICAgICAgICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKDEwMHZoKTsKICAgICAgICAgICAgfQogICAgICAgIH0KICAgIDwvc3R5bGU+CjwvaGVhZD4KPGJvZHk+CiAgICA8c2NyaXB0PgogICAgICAgIGZ1bmN0aW9uIGNyZWF0ZVN0YXIoKSB7CiAgICAgICAgICAgIGNvbnN0IHN0YXIgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCdkaXYnKTsKICAgICAgICAgICAgc3Rhci5jbGFzc05hbWUgPSAnc3Rhcic7CiAgICAgICAgICAgIHN0YXIuc3R5bGUubGVmdCA9IE1hdGgucmFuZG9tKCkgKiAxMDAgKyAndncnOwogICAgICAgICAgICBzdGFyLnN0eWxlLmFuaW1hdGlvbkR1cmF0aW9uID0gTWF0aC5yYW5kb20oKSAqIDIgKyAxICsgJ3MnOwogICAgICAgICAgICAKICAgICAgICAgICAgZG9jdW1lbnQuYm9keS5hcHBlbmRDaGlsZChzdGFyKTsKICAgICAgICAgICAgCiAgICAgICAgICAgIHN0YXIuYWRkRXZlbnRMaXN0ZW5lcignYW5pbWF0aW9uZW5kJywgKCkgPT4gewogICAgICAgICAgICAgICAgc3Rhci5yZW1vdmUoKTsKICAgICAgICAgICAgfSk7CiAgICAgICAgfQoKICAgICAgICBzZXRJbnRlcnZhbChjcmVhdGVTdGFyLCA1MCk7CiAgICA8L3NjcmlwdD4KPC9ib2R5Pgo8L2h0bWw+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raining Stars</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background: #000;
+            overflow: hidden;
+        }
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: fall linear;
+        }
+        @keyframes fall {
+            from {
+                transform: translateY(-10px);
+            }
+            to {
+                transform: translateY(100vh);
+            }
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function createStar() {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + 'vw';
+            star.style.animationDuration = Math.random() * 2 + 1 + 's';
+            
+            document.body.appendChild(star);
+            
+            star.addEventListener('animationend', () => {
+                star.remove();
+            });
+        }
+
+        setInterval(createStar, 50);
+    </script>
+</body>
+</html>
